@@ -1,0 +1,19 @@
+.App {
+  text-align: center;
+  justify-content: center;
+  height: 90vh;
+  width: 90vw;
+  margin: 0;
+}
+
+button {
+  min-height: 40px;
+  min-width: 80px;
+  background-color: #6bb6c1;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.reset {
+  margin-left: 10px;
+}
