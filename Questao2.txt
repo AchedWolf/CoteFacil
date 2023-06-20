@@ -1,0 +1,22 @@
+Questão 2:
+Em uma estrutura git onde temos as branchs master e develop, após receber duas solicitações, uma 
+para correção de um erro e outra para criação de uma nova funcionalidade. Como deveria ser criada as 
+branchs segundo o gitflow? Responda em um arquivo .txt nomeado “Questao2.txt” dentro do projeto do 
+Github.
+
+Resposta:
+        Seguindo a estrutura de um gitflow o ideal seria a criação de duas novas branchs: uma para o 
+    desenvolvimento da nova funcionalidade (para facilitar a chamaremos de feature) e uma para a 
+    realização da correção (chamaremos de hotfix), ficando assim com 3 branchs no projeto.
+        Conforme a correção do erro é realizada e finalizada a branch hotfix irá se unir (merge) as
+    outras duas respeitando o seguinte diagrama:
+
+        ------------------- Master --------->
+             \                /              
+              |--- hotfix ---<               
+              |               \              
+               \---------- featura --------->
+
+        Com isto, mesmo com a nova funcionalidade sendo desenvolvida em outra branch, no momento da 
+    de unificar ela à master (se for aprovada), ela já terá as correções necessarias pro erro identificado
+    anteriormente, não o trazendo de volta durante o processo de unificação das branchs (merge).
