@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Me contrata :)</title>
+        <h:outputStylesheet library="webjars" name="primeflex/3.0.1/primeflex.min.css" />
+    </h:head>
+    <h:body>
+		<h:form>
+			<p:card>
+				<f:facet name="title">
+					Lista de planetas
+				</f:facet>
+				
+				<p:dataTable id="list" var="planet" value="#{listPlanetHandle.planetList}">
+				     <p:column class="center" headerText="Id" sortBy="#{planet.id}">
+				        <h:outputText value="#{planet.id}" />
+				     </p:column>
+				     
+				     <p:column class="center" headerText="Nome" sortBy="#{planet.nome}">
+				     	<h:outputText value="#{planet.nome}" />
+				     </p:column>
+				
+				     <p:column class="center" headerText="Clima" sortBy="#{planet.clima}">
+				        <h:outputText value="#{planet.clima}" />
+				     </p:column>
+				
+				     <p:column class="center" headerText="Terreno" sortBy="#{planet.terreno}">
+				        <h:outputText value="#{planet.terreno}" />
+				     </p:column>
+				
+				     <p:column class="center" headerText="Aparições em filmes" sortBy="#{planet.numAparicao}">
+				        <h:outputText value="#{planet.numAparicao}" />
+				     </p:column>
+				     
+				     <f:facet name="footer">
+						<h:outputText value="#{listPlanetHandle.responseMessage}"/>
+					</f:facet>
+			   	</p:dataTable>
+			   	
+			   	<f:facet name="footer" style="justify-content: flex-end">
+			   		<p:commandButton icon="pi pi-plus-circle" value="Incluir" action="addPlanet.xhtml"/>
+			   		<p:commandButton icon="pi pi-search" value="Pesquisar" action="getPlanet.xhtml" style="margin-left: 10px;"/>
+			   		<p:commandButton icon="pi pi-trash" value="Excluir" action="removePlanet.xhtml" style="margin-left: 10px;"/>
+			   	</f:facet>
+			</p:card>
+		</h:form>		
+    </h:body>
+</html>

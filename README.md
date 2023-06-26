@@ -10,10 +10,6 @@
 
   ### Execução:
   - Importe o projeto java que se encontra na pasta "Questao1"
-  - Crie o banco de dados:
-    - Acesse a pasta WebContent/WEB-INF/lib;
-    - Execute o comando no console: "java -cp h2-2.1.214.jar org.h2.tools.Shell;
-    - Defina o usuario como "admin" e a senha como "1234";
   - Configure o servidor no Eclipse;
   - Adicione o projeto a execução do servidor;
   - Execute o projeto;

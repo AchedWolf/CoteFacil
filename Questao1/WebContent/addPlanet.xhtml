@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Me contrata :)</title>
+    </h:head>
+    <h:body>
+		<h:form>
+			<p:card>
+				<f:facet name="title">
+					<p:commandButton icon="pi pi-arrow-left" action="listPlanet.xhtml"/> Adicione um Planeta
+				</f:facet>
+			
+				<div class="ui-field formgrid grid">					
+					<div class="field row">
+						<p:outputLabel class="col-2" for="nome" value="Nome:" />
+						<p:inputText class="col-10" id="nome" value="#{includePlanetHandle.nome}" style="margin-left: 10px;"/>
+					</div>
+					
+					<div class="field col">
+						<p:outputLabel class="col-2" for="clima" value="Clima:" />
+						<p:inputText class="col-10" id="clima" value="#{includePlanetHandle.clima}" style="margin-left: 10px;"/>
+					</div>
+					
+					<div class="field col">
+						<p:outputLabel class="col-2" for="terreno" value="Terreno:" />
+						<p:inputText class="col-10" id="terreno" value="#{includePlanetHandle.terreno}" style="margin-left: 10px;"/>
+					</div>
+				</div>
+			
+				<f:facet name="footer">
+			        <p:commandButton icon="pi pi-plus-circle" value="Incluir" update="response" action="#{includePlanetHandle.addPlanet}"/>
+			    </f:facet>
+			    
+			</p:card>
+		</h:form>
+			
+	    <p:outputPanel id="response">
+			<p:card rendered="#{includePlanetHandle.renderResult}" style="margin-top: 10px;">
+				<f:facet name="title">
+					<strong><h:outputText value="#{includePlanetHandle.responseMessage}"/></strong>
+				</f:facet>
+			</p:card>
+		</p:outputPanel>
+    </h:body>
+</html>

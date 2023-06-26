@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Me contrata :)</title>
+    </h:head>
+    <h:body>
+		<h:form>
+			<p:card>
+				<f:facet name="title">
+					<p:commandButton icon="pi pi-arrow-left" action="listPlanet.xhtml"/> Pesquise um Planeta
+				</f:facet>
+				
+				<div class="ui-field formgrid grid">
+					<div class="field col">
+						<p:outputLabel for="id" value="Por Id: " />
+						<p:inputNumber id="id" decimalPlaces="0" value="#{getPlanetHandle.id}"/>
+					</div>
+					
+					<div class="field col">
+						<p:outputLabel for="nome" value="Por Nome: " />
+						<p:inputText id="nome" value="#{getPlanetHandle.nome}"/>
+					</div>
+				</div>
+				
+				<f:facet name="footer">
+			        <p:commandButton icon="pi pi-search" value="Pesquisar" action="#{getPlanetHandle.getPlanet}"/>
+			    </f:facet>
+			</p:card>
+		</h:form>
+			
+		<p:outputPanel id="response">
+			<p:card rendered="#{getPlanetHandle.renderResult}" style="margin-top: 10px;">
+				<f:facet name="title">
+					<strong><h:outputText value="#{getPlanetHandle.responseMessage}"/></strong>
+				</f:facet>
+				<p:outputPanel rendered="#{getPlanetHandle.renderPlanet}">
+						<strong><p:outputLabel value="Clima: " /></strong>
+						<h:outputText value="#{getPlanetHandle.planetSelected.clima}" />
+						
+						<br/>
+						
+						<strong><p:outputLabel value="Terreno: " /></strong>
+						<h:outputText value="#{getPlanetHandle.planetSelected.terreno}" />
+						
+						<br/>
+						
+						<strong><p:outputLabel value="Numero de aparições nos filmes: " /></strong>
+						<h:outputText value="#{getPlanetHandle.planetSelected.numAparicao}" />
+				</p:outputPanel>
+			</p:card>
+		</p:outputPanel>
+    </h:body>
+</html>
